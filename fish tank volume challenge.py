@@ -1,5 +1,6 @@
+#done
 length = int (input("input length"))
 depth = int (input("input depth"))
 height = int (input("input height"))
-volume = length * width * height
+volume = length * depth * height
 print("The volume is",volume)
