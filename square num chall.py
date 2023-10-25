@@ -1,4 +1,5 @@
 a = 0
 for a in range(1, 21):
-    print(a**2)
+    b = (a**2)
+    print (a,"squared", "is", b)
     a += 1
