@@ -1,4 +1,3 @@
-
 while True:
     gamertag = input("Enter a gamertag: ")
     if len(gamertag) <= 15:

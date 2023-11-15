@@ -1,0 +1,12 @@
+notes = [""] * 10
+
+while True:
+
+    for i, note in enumerate(notes):
+        print(f"{i}: {note}")
+    
+    note_num = int(input("Enter a note number to change (0-9): "))
+    
+    new_note = input("Enter the new note: ")
+    
+    notes[note_num] = new_note
