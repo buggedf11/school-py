@@ -4,11 +4,20 @@
 #speed_limit: Constant representing the legal speed limit. Integer
 #speeding_vehicles: List or counter to keep track of instances where vehicles exceed the speed limit. String
 
+average_speeds = []
+speeding_vehicles = []
+vehicle_plate_numbers = []
+speed_limit = 70
+distance_between_sensors = 100 
 
-camdist = float(input("input distance beetween sensors"))
-entry = float(input("enter the time it entered"))
-speed = (camdist / entry * 2.237)
+entry = float(input("Enter the time the vehicle entered: "))
+speed = (distance_between_sensors / entry )
 
-if speed > 70:
-    print("speed over limit")
-print("print speed under")
+if (speed > speed_limit):
+    print("Speed over limit")
+    speeding_vehicles.append(speed)
+else:
+    print("Within speed limit")
+
+vehicle_plate_numbers.append(input("Enter the number plate of the identified vehicle: "))
+average_speeds.append(speed)
