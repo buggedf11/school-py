@@ -1,23 +1,29 @@
-#vehicle_plate_numbers: List to store the number plates of identified vehicles. String
-#distance_between_sensors: Constant representing the known distance between the two sensors. Integer
-#average_speeds: List to store the calculated average speeds of vehicles. Integer
-#speed_limit: Constant representing the legal speed limit. Integer
-#speeding_vehicles: List or counter to keep track of instances where vehicles exceed the speed limit. String
+speed_limit = 70 # Speed limit in km/h
+distance = 100 # Distance between the two cameras
 
-average_speeds = []
-speeding_vehicles = []
-vehicle_plate_numbers = []
-speed_limit = 70
-distance_between_sensors = 100 
+while True:
+    
+    while True:
+        try:
+            time = float(input("Enter the time the vehicle entered: "))
+            break
+        except ValueError:
+            print("Invalid input")
 
-entry = float(input("Enter the time the vehicle entered: "))
-speed = (distance_between_sensors / entry )
+    speed = (distance / time)
 
-if (speed > speed_limit):
-    print("Speed over limit")
-    speeding_vehicles.append(speed)
-else:
-    print("Within speed limit")
+    if speed > speed_limit:
+        print("Speed over limit")
+    
+        with open("/workspaces/school-py/plates.txt", "a") as f:
+            while True:
+                plate = input("Enter the plate number: ")
+                if len(plate) == 7 and plate[:2].isalpha() and plate[2:4].isdigit() and plate[4:].isalpha():
+                    f.write(str(plate) + "\n")
+                    break
+                else:
+                    print("Invalid plate number format. Please try again.")
 
-vehicle_plate_numbers.append(input("Enter the number plate of the identified vehicle: "))
-average_speeds.append(speed)
+
+    else:
+        print("Within speed limit")
